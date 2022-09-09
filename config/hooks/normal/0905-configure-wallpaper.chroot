@@ -1,0 +1,6 @@
+#!/bin/sh
+echo "I: running $0"
+
+cd usr/share/images/desktop-base/
+ls | grep -xv "your-wallpaper.png" | xargs rm
+mv your-wallpaper.png default

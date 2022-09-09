@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# Установка цитрикса вынесена в отдельный скрипт потому, что важна последовательность в установке пакетов.
+# Поместив их в packages.chroot lb будет их устанавливать в разнобой.
+
+echo "I: running $0"
+
+echo "Download icaclient"
+wget --output-document /hdx/icaclient_22.5.0.16_amd64.deb "https://downloads.citrix.com/21035/icaclient_22.7.0.20_amd64.deb?__gda__=exp=1662656030~acl=/*~hmac=c5fdb9dc3554ddf1814bb4c4f3c19d2938bf8fccb9ce1d06a7a83f7e71afeba3"
+echo "Install icaclient"
+dpkg -i /hdx/icaclient_22.5.0.16_amd64.deb
+
+echo "Download ctxusb (usb forward support)"
+wget --output-document /hdx/ctxusb_22.5.0.16_amd64.deb "https://downloads.citrix.com/21035/ctxusb_22.7.0.20_amd64.deb?__gda__=exp=1662656030~acl=/*~hmac=c5fdb9dc3554ddf1814bb4c4f3c19d2938bf8fccb9ce1d06a7a83f7e71afeba3"
+echo "Install ctxusb (usb forward support)"
+dpkg -i /hdx/ctxusb_22.5.0.16_amd64.deb
+
+echo "Download HDX Realtime"
+wget --output-document /hdx/hdx-realtime.zip "https://downloads.citrix.com/11922/HDX_RealTime_Media_Engine_2.9_for_Linux_x64.zip?__gda__=exp=1662656903~acl=/*~hmac=e4e2abc26fa2f24c31c7184e3d0113fe365028a81941df8f9440b50f7b2e9418"
+echo "Unpack HDX Realtime"
+unzip /hdx/hdx-realtime.zip -d /hdx/
+echo "Install HDX Realtime"
+mkdir -p /tmp/rtmeok
+dpkg -i --force-architecture --force-depends /hdx/HDX_RealTime_Media_Engine_2.9_for_Linux_x64/citrix-hdx-realtime-media-engine_2.9.0-2330_amd64.deb
+rm -rf /tmp/rtmeok
+
+echo "Download Zoom plugin"
+wget --output-document /hdx/zoomcitrixplugin-ubuntu_5.10.2.deb "https://zoom.us/download/vdi/3.3.2/zoomcitrixplugin-ubuntu_amd64.deb"
+echo "Install Zoom plugin"
+dpkg -i /hdx/zoomcitrixplugin-ubuntu_5.10.2.deb
+
+echo "Remove packages folder"
+rm -rf /hdx

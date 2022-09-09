@@ -1,0 +1,17 @@
+#!/bin/bash
+echo "I: running $0"
+
+disabled_services="avahi-daemon.service rsync.service zabbix-agent.service"
+enabled_services="cups-browsed.service cups.service ntp.service plymouth.service preload.service rsyslog.service lm-sensors.service haveged.service ssh.service"
+
+for service in $disabled_services; do
+	echo "Disabling $service"
+	systemctl disable "$service" || true
+	systemctl stop "$service" || true
+done
+
+for service in $enabled_services; do
+	echo "Enabling $service"
+	systemctl enable "$service" || true
+	systemctl start "$service" || true
+done

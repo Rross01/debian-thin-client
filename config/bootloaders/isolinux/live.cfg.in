@@ -1,0 +1,11 @@
+menu hshift 0
+menu width 82
+
+menu title ThinClient - Boot menu
+include stdmenu.cfg
+
+label installgui
+    menu label ^Install
+	linux /install/gtk/vmlinuz
+	initrd /install/gtk/initrd.gz
+	append video=vesa:ywrap,mtrr vga=788 @APPEND_INSTALL@ --- quiet

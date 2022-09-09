@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Advanced Network Configuration
+Comment=Manage and change your network connection settings
+Exec=nm-connection-editor
+Icon=preferences-system-network
+Path=
+Terminal=false
+StartupNotify=true

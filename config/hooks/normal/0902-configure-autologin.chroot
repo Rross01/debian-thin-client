@@ -1,0 +1,10 @@
+#!/bin/sh
+echo "I: running $0"
+
+echo "Create group autologin"
+groupadd -r autologin
+
+echo "Add user vdi to autologin group"
+gpasswd -a vdi autologin
+
+# User to autologin configured in inclides.chroot/etc/lightdm/lightdm.conf

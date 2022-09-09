@@ -1,0 +1,5 @@
+#!/bin/sh
+echo "I: running $0"
+
+chmod ogu=r /etc/x11vnc.passwd
+systemctl enable x11vnc.service
