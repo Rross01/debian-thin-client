@@ -5,6 +5,8 @@
 
 echo "I: running $0"
 
+mkdir /hdx
+
 echo "Download icaclient"
 wget --output-document /hdx/icaclient_22.5.0.16_amd64.deb "https://downloads.citrix.com/21035/icaclient_22.7.0.20_amd64.deb?__gda__=exp=1662656030~acl=/*~hmac=c5fdb9dc3554ddf1814bb4c4f3c19d2938bf8fccb9ce1d06a7a83f7e71afeba3"
 echo "Install icaclient"
