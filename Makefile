@@ -35,6 +35,8 @@ test_kvm_bios:
 
 	# Run the resulting image in KVM/virt-manager (legacy BIOS mode)
 
+	virsh net-start default 2>/dev/null || echo "Skip" 
+
 	virsh destroy dlc-test 2>/dev/null || echo "Skip" 
 	virsh undefine dlc-test 2>/dev/null || echo "Skip"
 
@@ -58,6 +60,8 @@ test_kvm_uefi:
 	# Run the resulting image in KVM/virt-manager (UEFI mode)
 	# UEFI support must be enabled in QEMU config for EFI install tests https://wiki.archlinux.org/index.php/Libvirt#UEFI_Support (/usr/share/OVMF/*.fd)
 
+	virsh net-start default 2>/dev/null || echo "Skip" 
+	
 	virsh destroy dlc-test 2>/dev/null || echo "Skip" 
 	virsh undefine dlc-test 2>/dev/null || echo "Skip"
 
