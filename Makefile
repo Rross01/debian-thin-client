@@ -26,6 +26,7 @@ build:
 tests: copy_iso test_kvm_bios test_kvm_uefi
 
 copy_iso:
+	mkdir /var/lib/libvirt/images -p
 	cp live-image-amd64.hybrid.iso /var/lib/libvirt/images/live-image-amd64.hybrid.iso --force
 
 test_kvm_bios:
