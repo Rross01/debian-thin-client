@@ -8,7 +8,8 @@ install_buildenv:
 	# Install packages required to build the image
 	sudo apt -y install live-build make build-essential wget git unzip colordiff apt-transport-https \
 	rename ovmf rsync python3-venv gnupg squashfs-tools gettext po4a debhelper-compat \
-	qemu-system libvirt-daemon-system
+	qemu-system qemu-kvm libvirt-clients libvirt-daemon-system \
+	bridge-utils libguestfs-tools genisoimage virtinst libosinfo-bin
 	chmod +x auto/*
 
 ##############################
