@@ -58,8 +58,8 @@ test_kvm_uefi:
 	# Run the resulting image in KVM/virt-manager (UEFI mode)
 	# UEFI support must be enabled in QEMU config for EFI install tests https://wiki.archlinux.org/index.php/Libvirt#UEFI_Support (/usr/share/OVMF/*.fd)
 
-	virsh destroy dlc-test
-	virsh undefine dlc-test
+	virsh destroy dlc-test 2>/dev/null || echo "Skip" 
+	virsh undefine dlc-test 2>/dev/null || echo "Skip"
 
 	virt-install \
 	--name dlc-test \
