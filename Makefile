@@ -44,7 +44,7 @@ test_kvm_bios:
 	--boot hd,cdrom \
 	--network bridge=br0 \
 	--video virtio \
-	--disk path=/var/lib/libvirt/images/dlc-test-disk0.qcow2,format=qcow2,size=20,device=disk,bus=virtio,cache=none \
+	--disk path=/var/lib/libvirt/images/dlc-test-disk0.qcow2,format=qcow2,size=10,device=disk,bus=virtio,cache=none \
 	--cdrom "/var/lib/libvirt/images/live-image-amd64.hybrid.iso" \
 	--memory 4096 --vcpu 2
 
@@ -66,7 +66,7 @@ test_kvm_uefi:
 	--boot hd,loader=/usr/share/OVMF/OVMF_CODE.fd \
 	--network bridge=br0 \
 	--video virtio \
-	--disk path=/var/lib/libvirt/images/dlc-test-disk0.qcow2,format=qcow2,size=20,device=disk,bus=virtio,cache=none \
+	--disk path=/var/lib/libvirt/images/dlc-test-disk0.qcow2,format=qcow2,size=10,device=disk,bus=virtio,cache=none \
 	--cdrom "/var/lib/libvirt/images/live-image-amd64.hybrid.iso" \
 	--memory 4096 --vcpu 2
 
