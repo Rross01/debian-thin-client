@@ -25,6 +25,7 @@ lb config noauto \
 --firmware-binary true \
 --firmware-chroot true \
 --initramfs live-boot \
+--iso-publisher erth \
 --iso-volume tc \
 --linux-packages "linux-image linux-headers" \
 --bootappend-live "boot=live config splash" \
