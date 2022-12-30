@@ -1,0 +1,4 @@
+#!/bin/sh
+echo "I: running $0"
+
+chmod +x /home/vdi/Desktop/*
