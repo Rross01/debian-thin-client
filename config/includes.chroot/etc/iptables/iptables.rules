@@ -1,0 +1,18 @@
+#!/bin/bash
+
+IPT=/sbin/iptables
+INT=$(pci=`lspci  | awk '/Ethernet/{print $1}'`; find /sys/class/net ! -type d | xargs --max-args=1 realpath  | awk -v pciid=$pci -F\/ '{if($0 ~ pciid){print $NF}}')
+
+$IPT -F
+$IPT -X
+
+$IPT -A INPUT -i $INT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+$IPT -A INPUT -i $INT -m conntrack --ctstate INVALID -j DROP
+
+$IPT -A INPUT -i $INT -p icmp -j ACCEPT # ICMP
+$IPT -A INPUT -i $INT -p tcp --dport 22 -j ACCEPT # SSH
+$IPT -A INPUT -i $INT -p tcp --dport 10050 -j ACCEPT # zabbix-agent
+$IPT -A INPUT -i $INT -p tcp --dport 5900 -j ACCEPT # x11vnc
+$IPT -A INPUT -i $INT -p tcp --dport 9090 -j ACCEPT # cockpit
+
+$IPT -A INPUT -i $INT -j DROP

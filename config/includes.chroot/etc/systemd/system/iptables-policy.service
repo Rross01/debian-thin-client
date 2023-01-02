@@ -1,0 +1,11 @@
+[Unit]
+Description=Apply iptables rules after network up
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /etc/iptables/iptables.rules
+
+[Install]
+WantedBy=multi-user.target
