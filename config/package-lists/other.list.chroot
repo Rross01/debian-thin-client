@@ -18,7 +18,6 @@ xfce4-panel
 xfce4-pulseaudio-plugin
 xfce4-settings
 xfce4-power-manager
-xfce4-screenshooter
 thunar
 
 #Section: Notification
@@ -27,62 +26,13 @@ zenity
 #Section: Text editors
 vim
 
-#Section: Desktop configuration utilities
-dconf-cli
-dconf-gsettings-backend
-
-#Section: Power management
-usbutils
-acpi
-acpi-support
-acpi-support-base
-rfkill
-
-#Section: Resources
-qt5-gtk-platformtheme
-
-#Section: Other
-xbitmaps
-gtk2-engines
-gtk2-engines-murrine
-gtk2-engines-pixbuf
-unzip
-
 #Title: Internet and network
 firefox-esr
+curl
+wget
 
 #Section: Network management
 network-manager-gnome
 
-#Section: Firewall
-iptables
-
 #Section: Network diagnostic/monitoring
 traceroute
-
-#Section: SSH
-openssh-server
-
-#Section: Shell & basic utilities
-bash
-bash-completion
-sed
-util-linux
-util-linux-locales
-less
-wget
-
-#Section: Audio system
-pavucontrol
-pulseaudio
-pulseaudio-utils
-pulseaudio-module-lirc
-pulseaudio-module-jack
-kmod
-alsa-oss
-alsa-tools
-alsa-utils
-libasound2-plugins
-oss-compat
-alsa-firmware-loaders
-rtkit

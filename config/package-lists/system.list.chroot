@@ -5,6 +5,54 @@ apt-transport-https
 debian-archive-keyring
 debian-keyring
 
+#Section: SSH
+openssh-server
+
+#Section: Shell & basic utilities
+bash
+bash-completion
+sed
+util-linux
+util-linux-locales
+less
+
+#Section: Audio system
+pavucontrol
+pulseaudio
+pulseaudio-utils
+pulseaudio-module-lirc
+pulseaudio-module-jack
+kmod
+alsa-oss
+alsa-tools
+alsa-utils
+libasound2-plugins
+oss-compat
+alsa-firmware-loaders
+rtkit
+#Section: Firewall
+iptables
+
+#Section: Resources
+qt5-gtk-platformtheme
+
+#Section: Other
+xbitmaps
+gtk2-engines
+gtk2-engines-murrine
+gtk2-engines-pixbuf
+
+#Section: Power management
+usbutils
+acpi
+acpi-support
+acpi-support-base
+rfkill
+
+#Section: Desktop configuration utilities
+dconf-cli
+dconf-gsettings-backend
+
 #Section: Task management/monitoring
 htop
 lm-sensors
