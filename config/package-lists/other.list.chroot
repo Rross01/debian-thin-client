@@ -36,3 +36,13 @@ network-manager-gnome
 
 #Section: Network diagnostic/monitoring
 traceroute
+
+ntp
+libapr1
+libaprutil1
+libpcre16-3
+libcanberra-gtk-module
+libgtkglext1
+pcscd
+libc++-11-dev
+rsync
