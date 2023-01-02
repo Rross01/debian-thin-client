@@ -18,3 +18,8 @@ shim-signed
 
 # Firmware
 firmware-realtek
+
+# Other
+fdisk
+bash
+parted
