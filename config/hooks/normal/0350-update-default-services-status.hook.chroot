@@ -1,8 +1,8 @@
 #!/bin/bash
 echo "I: running $0"
 
-disabled_services="avahi-daemon.service rsync.service zabbix-agent.service"
-enabled_services="cups-browsed.service cups.service ntp.service plymouth.service preload.service rsyslog.service lm-sensors.service haveged.service ssh.service"
+disabled_services=$(cat /temp/services.disabled)
+enabled_services=$(cat /temp/services.enabled)
 
 for service in $disabled_services; do
 	echo "Disabling $service"
