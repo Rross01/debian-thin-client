@@ -3,7 +3,7 @@ Version=1.0
 Type=Application
 Name=PC info
 Comment=Show PC info
-Exec=/bin/bash -c "zenity --info --text=\"Device name: $(hostname -A)\nDevice IP: $(hostname -I | awk '{print $1}')\" --width=400"
+Exec=/bin/bash -c "zenity --info --text=\"Device name: $(hostname)\nDevice IP: $(hostname -I | awk '{print $1}')\" --width=400"
 Icon=user-info
 Path=
 Terminal=false
