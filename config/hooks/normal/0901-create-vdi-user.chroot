@@ -2,4 +2,4 @@
 echo "I: running $0"
 
 useradd vdi -G dialout,fax,cdrom,floppy,tape,audio,dip,video,plugdev,scanner,netdev,avahi -m -d /home/vdi
-echo "vdi:qazedctgb" | chpasswd
+echo "vdi:changeme" | chpasswd
