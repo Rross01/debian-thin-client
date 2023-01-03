@@ -101,6 +101,7 @@ deb-src http://deb.debian.org/debian/ bullseye-updates main contrib non-fre
 # Конфигурация
 ## Пароли локальных пользователей
 Стандартный пароль от пользователей root и vdi - *changeme*.
+
 Пароль от пользователя vdi задан в хук-скрипте `config\hooks\normal\0901-create-vdi-user.chroot`.
 Пароль от пользователя root задан в preseed файле `config\includes.installer\preseed.cfg` в зашифрованном виде. Создать зашифрованный пароль можно командой `mkpasswd -s -m sha-512`, для работы утилиты необходим установленный пакет `whois`.
 ## Брендирование
