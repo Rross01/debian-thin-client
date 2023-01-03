@@ -44,7 +44,7 @@ test_kvm_bios:
 	virt-install \
 	--name dlc-test \
 	--boot hd,cdrom \
-	--network bridge=br0 \
+	--network=default \
 	--video virtio \
 	--disk path=/var/lib/libvirt/images/dlc-test-disk0.qcow2,format=qcow2,size=10,device=disk,bus=virtio,cache=none \
 	--cdrom "/var/lib/libvirt/images/live-image-amd64.hybrid.iso" \
@@ -53,7 +53,7 @@ test_kvm_bios:
 	virsh destroy dlc-test
 	virsh undefine dlc-test
 	
-	rm -f /var/lib/libvirt/images//dlc-test-disk0.qcow2
+	rm -f /var/lib/libvirt/images/dlc-test-disk0.qcow2
 
 test_kvm_uefi:
 
@@ -68,7 +68,7 @@ test_kvm_uefi:
 	virt-install \
 	--name dlc-test \
 	--boot hd,loader=/usr/share/OVMF/OVMF_CODE.fd \
-	--network bridge=br0 \
+	--network=default \
 	--video virtio \
 	--disk path=/var/lib/libvirt/images/dlc-test-disk0.qcow2,format=qcow2,size=10,device=disk,bus=virtio,cache=none \
 	--cdrom "/var/lib/libvirt/images/live-image-amd64.hybrid.iso" \
@@ -77,4 +77,4 @@ test_kvm_uefi:
 	virsh destroy dlc-test
 	virsh undefine dlc-test
 
-	rm -f /var/lib/libvirt/images//dlc-test-disk0.qcow2
+	rm -f /var/lib/libvirt/images/dlc-test-disk0.qcow2
