@@ -97,3 +97,16 @@ deb-src http://deb.debian.org/debian/ bullseye-updates main contrib non-fre
 1. VNC сервер, стартуемый как systemd юнит.
 2. Cockpit. Представляет из себя Web интерфейс, через который доступна основная информация о аппаратной части устройстве, статусы сервисов, логи, терминал прямо в браузере и т.д. Авторизация происходит на основе локальных пользователей. Веб интерфейс доступен по 9090 порту устройства.
 3. (в дальнейшем) Централизованное управление конфигурациями посредством Ansible или Puppet.
+
+# Конфигурация
+## Пароли локальных пользователей
+Стандартный пароль от пользователей root и vdi - *changeme*.
+Пароль от пользователя vdi задан в хук-скрипте `config\hooks\normal\0901-create-vdi-user.chroot`.
+Пароль от пользователя root задан в preseed файле `config\includes.installer\preseed.cfg` в зашифрованном виде. Создать зашифрованный пароль можно командой `mkpasswd -s -m sha-512`, для работы утилиты необходим установленный пакет `whois`.
+## Брендирование
+`config\includes.binary\boot\grub\splash.png` - заставка во время UEFI загрузки.
+`config\includes.binary\isolinux\splash.png` - заставка во время Legacy загрузки.
+`config\includes.installer\usr\share\graphics\logo_debian.png` - шапка внутри установочника.
+`config\includes.chroot\usr\share\images\desktop-base\your-wallpaper.png` - обои на рабочем столе.
+
+Остальное описано в [официальной документации](https://live-team.pages.debian.net/live-manual/html/live-manual/index.en.html).
