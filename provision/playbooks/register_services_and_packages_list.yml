@@ -1,0 +1,25 @@
+---
+- name: Register services list
+  hosts: localhost
+  gather_facts: false
+  vars:
+    enabled_content: "{{ lookup('file','{{ distrib_path }}/config/includes.chroot/temp/services.enabled').splitlines() }}"
+    disabled_content: "{{ lookup('file','{{ distrib_path }}/config/includes.chroot/temp/services.disabled').splitlines() }}"
+
+  tasks:
+    - name: Add services list to dummy host
+      add_host:
+        name: "services_dummy_host"
+        enabled_services: "{{ enabled_content }}"
+        disabled_services: "{{ disabled_content }}"
+
+- name: Register packages list
+  hosts: localhost
+  vars:
+    packages_content: "{{ lookup('file','{{ distrib_path }}/config/package-lists/ansible.list.chroot').splitlines() }}"
+
+  tasks:
+    - name: Add packages list to dummy host
+      add_host:
+        name: "packages_dummy_host"
+        packages: "{{ packages_content }}"

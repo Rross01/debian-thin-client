@@ -1,0 +1,26 @@
+---
+- name: Include register_services_and_packages_list playbook
+  include: playbooks/register_services_and_packages_list.yml
+
+- name: Apply all roles to test
+  hosts: test
+  gather_facts: false
+
+  pre_tasks:
+    - name: Sync_etc roles
+      include_role:
+        name: sync_etc
+
+  tasks:
+    - name: Required_packages roles
+      include_role:
+        name: required_packages
+
+    - name: Required_services roles
+      include_role:
+        name: required_services
+
+  post_tasks:
+    - name: reboot
+      reboot:
+        reboot_timeout: 180

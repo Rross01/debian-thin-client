@@ -1,0 +1,35 @@
+---
+- name: Include register_services_and_packages_list playbook
+  include: playbooks/register_services_and_packages_list.yml
+
+- name: Apply all roles to prod
+  hosts: prod
+  gather_facts: false
+
+  pre_tasks:
+    - name: Register a variable
+      shell: cat /etc/.tc_version
+      register: tc_version
+      ignore_errors: True
+
+    - name: Sync_etc roles
+      include_role:
+        name: sync_etc
+      when: tc_version.stdout != actual_iso_version
+
+  tasks:
+    - name: Required_packages roles
+      include_role:
+        name: required_packages
+      when: tc_version.stdout != actual_iso_version
+
+    - name: Required_services roles
+      include_role:
+        name: required_services
+      when: tc_version.stdout != actual_iso_version
+
+  post_tasks:
+    - name: reboot
+      reboot:
+        reboot_timeout: 180
+      when: tc_version.stdout != actual_iso_version

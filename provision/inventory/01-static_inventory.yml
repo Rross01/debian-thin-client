@@ -1,0 +1,20 @@
+---
+localhost:
+  hosts: "localhost"
+  vars:
+    ansible_connection: local
+
+all_tc:
+#  hosts:
+#  children:
+#    test:
+#    prod:
+  vars:
+    actual_iso_version: "0.1"
+    ansible_port: 22
+    ansible_user: root
+    ansible_password: 'changeme'
+
+all:
+  vars:
+    distrib_path: "{{ inventory_dir }}/../../debian-live-config/"
