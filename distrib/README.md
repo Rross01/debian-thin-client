@@ -6,6 +6,7 @@
 │   ├── hooks                   # Внешние скрипты, выполняемые в live, или в chroot
 │   ├── includes.chroot         # Файлы, помещаемые в корень chroot
 │   ├── includes.installer      # Файлы, помещаемые в корень live
+│   ├── includes.binary         # Файлы, помещаемые в корень iso образа
 │   ├── package-lists  
 │   │   └── *.list.chroot       # Пакеты для установки в live
 │   │   └── *.list.binary       # Пакеты для установки в chroot
